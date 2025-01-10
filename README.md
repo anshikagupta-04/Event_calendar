@@ -1,8 +1,42 @@
-# React + Vite
+# Event Calendar Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary of Features
 
-Currently, two official plugins are available:
+The Event Calendar Web App allows users to:
+- View a calendar displaying upcoming events and activities.
+- Add new events with relevant details such as title, date, time, and description.
+- Edit or delete existing events.
+- Navigate through different months to view events.
+- Search for events by name or category.
+- Responsive design for mobile and desktop use.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instructions to Run the App Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/event-calendar.git
+   cd event-calendar
+   
+Install the dependencies:
+
+If using npm:
+npm install
+If using yarn:
+yarn install
+
+Start the development server:
+
+If using npm:
+npm start
+If using yarn:
+yarn start
+The app should now be running at http://localhost:3000. Open this URL in your browser to see the app in action.
+
+Link to Deployed App
+You can access the live version of the app here:
+
+Deployed Event Calendar App
+
+Technologies Used
+Frontend: React.js
