@@ -1,5 +1,5 @@
-import { ScrollArea } from "@/Components/ui/scroll-area"
-import { Separator } from "@/Components/ui/separator"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
 
 const EventList = ({ events, selectedDate, handleDeleteEvent }) => {
 
