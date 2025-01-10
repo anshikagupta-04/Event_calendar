@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import './App.css'
-import Calendar from './components/Calendar'
+import Calendar from './components/Calendar.jsx'
 
 function App() {
 
