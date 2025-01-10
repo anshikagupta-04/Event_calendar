@@ -1,11 +1,4 @@
 import React, { useState } from 'react'
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
 import { Separator } from "@/components/ui/separator"
 import Event from './Event';
 import EventList from './EventList';
