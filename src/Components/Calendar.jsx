@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Separator } from "./ui/separator"
 import Event from './Event';
 import EventList from './EventList';
@@ -19,6 +19,7 @@ const Calendar = () => {
         const savedTasks = localStorage.getItem('calendarTasks');
         return savedTasks ? JSON.parse(savedTasks) : {};
     });
+    console.log(events);
 
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay()
@@ -37,6 +38,7 @@ const Calendar = () => {
         const dayOfWeek = (firstDayOfMonth + (day - 1)) % 7;
         return dayOfWeek === 0 || dayOfWeek === 6;
     };
+    
 
     const isToday = (day) => {
         return (day === currentDate.getDate() && currentMonth === currentDate.getMonth() && currentYear === currentDate.getFullYear())
@@ -58,8 +60,13 @@ const Calendar = () => {
         }
     }
 
+    // Persist state changes to localStorage
+    useEffect(() => {
+        localStorage.setItem("calendarTasks", JSON.stringify(events));
+    }, [events]);
+
     const handleSaveEvent = (newTask, selectedDate) => {
-        console.log(selectedDate);
+        // console.log(selectedDate);
         if (!selectedDate) {
             console.error("Cannot save event without a selected date.");
             return;
@@ -68,7 +75,7 @@ const Calendar = () => {
             ...prevEvents,
             [selectedDate]: [...(prevEvents[selectedDate] || []), newTask],
         }));
-        console.log(`Updated Events for ${selectedDate}:`, newTask);
+        // console.log(`Updated Events for ${selectedDate}:`, newTask);
         console.log(events);
 
     };
