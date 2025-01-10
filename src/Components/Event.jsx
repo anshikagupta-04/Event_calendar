@@ -14,6 +14,7 @@ const Event = ({ showEventPopUp, onClose, selectedDate, onSave }) => {
     setTasks(savedTasks);
   }, []);
 
+
   // Save tasks to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("calendarTasks", JSON.stringify(tasks));
@@ -28,21 +29,27 @@ const Event = ({ showEventPopUp, onClose, selectedDate, onSave }) => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Save task under selectedDate
-    const updatedTasks = {
-      ...tasks,
-      [selectedDate]: [
-        ...(tasks[selectedDate] || []),
-        { ...tasks, id: Date.now() },
-      ],
+  
+    const newTask = {
+      title: tasks.title,
+      startTime: tasks.startTime,
+      endTime: tasks.endTime,
+      description: tasks.description,
+      id: Date.now(),
     };
-    console.log("added");
-    
-    setTasks(updatedTasks);
-    onSave(updatedTasks);
-    onClose(); // Close popup after saving
+  
+    if (newTask.title && newTask.startTime && newTask.endTime) {
+        console.log("selected date", selectedDate);
+        
+        onSave({ ...newTask, id: Date.now() }, selectedDate); // Add a unique ID to the task
+        setTasks({ title: "", startTime: "", endTime: "", description: "" });
+        onClose(); // Close popup after saving
+        console.log("selected date 2", selectedDate);
+
+      }
   };
+
+  
 
   if (!showEventPopUp) return null;
 
@@ -106,7 +113,6 @@ const Event = ({ showEventPopUp, onClose, selectedDate, onSave }) => {
               value={tasks.description}
               onChange={handleChange}
               rows="3"
-              required
               className="w-full mt-1 p-2 border rounded focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
