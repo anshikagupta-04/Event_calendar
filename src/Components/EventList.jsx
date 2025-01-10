@@ -1,7 +1,5 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { useState } from 'react'
+import { ScrollArea } from "@/Components/ui/scroll-area"
+import { Separator } from "@/Components/ui/separator"
 
 const EventList = ({ events, selectedDate, handleDeleteEvent }) => {
 
